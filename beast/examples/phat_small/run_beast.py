@@ -27,8 +27,7 @@ from beast.physicsmodel.model_grid import (make_iso_table,
 import beast.observationmodel.noisemodel.generic_noisemodel as noisemodel
 from beast.observationmodel.ast.make_ast_input_list import pick_models
 from beast.observationmodel.ast.make_ast_xy_list import pick_positions
-from beast.observationmodel.ast.make_ast_xy_list import pick_positions_per_density
-from beast.observationmodel.ast.make_ast_xy_list import pick_positions_per_background
+from beast.observationmodel.ast.make_ast_xy_list import pick_positions_per_mapped_quantity
 from beast.fitting import fit
 from beast.fitting import trim_grid
 from beast.physicsmodel.grid import FileSEDGrid
@@ -145,11 +144,11 @@ if __name__ == '__main__':
                 pick_positions(obsdata, filename, separation,
                                	refimage=datamodel.ast_reference_image)
             if datamodel.ast_source_density_table is not None:
-                pick_positions_per_density(chosen_seds, datamodel.ast_source_density_table, datamodel.ast_N_dens_bins,
+                pick_positions_per_mapped_quantity(chosen_seds, datamodel.ast_source_density_table, datamodel.ast_N_dens_bins,
                                	outfile=filename, refimage=datamodel.ast_reference_image, Nrealize=1)
 
             if datamodel.ast_background_table is not None:
-                pick_positions_per_background(chosen_seds, datamodel.ast_background_table, datamodel.ast_N_dens_bins,
+                pick_positions_per_mapped_quantity(chosen_seds, datamodel.ast_background_table, datamodel.ast_N_dens_bins,
                                	outfile=filename, refimage=datamodel.ast_reference_image, Nrealize=1)
             if datamodel.ast_reference_image is None and datamodel.ast_source_density_table is None and datamodel.ast_background_table is None:
                 pick_positions(obsdata, filename, separation)

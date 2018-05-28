@@ -186,7 +186,7 @@ def make_source_dens_map(catfile,
                                              '_with_sourceden.fits'),
                              overwrite=True)
     
-    bin_details = Table(names=['i_ra', 'i_dec', 'sourcedens', 'min_ra', 'max_ra', 'min_dec', 'max_dec'])
+    bin_details = Table(names=['i_ra', 'i_dec', 'value', 'min_ra', 'max_ra', 'min_dec', 'max_dec'])
 
     for i in range(n_x):
 
